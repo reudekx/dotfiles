@@ -1,0 +1,6 @@
+configuration {
+	modes: "window,drun,run,ssh";
+	font: "JetBrainsMono Nerd Font Mono 15";
+	combi-modes: "window,run";
+}
+@theme "Monokai"

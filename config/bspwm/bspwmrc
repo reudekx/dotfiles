@@ -1,0 +1,45 @@
+#!/bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+if xrandr -q | grep -q 'DP-0 connected'; then
+	xrandr --output DP-0 --primary --mode 1920x1080 --rate 144.00 --rotate normal \
+		--output HDMI-0 --mode 1920x1080 --rate 60.00 --rotate normal --right-of DP-0
+	bspc monitor DP-0 -d 1 2 3 4
+	bspc monitor HDMI-0 -d 5 6 7 8
+else
+	bspc monitor -d 1 2 3 4 5 6 7 8
+fi
+
+bspc config border_width				3
+bspc config window_gap					8
+
+bspc config borderless_monocle			true
+bspc config normal_border_color			'#484848'
+bspc config focused_border_color		'#1BE2BE'
+bspc config urgent_border_color			'#FF1100'
+bspc config presel_border_color			'#A64D79'
+
+bspc config normal_frame_opacity		0.75
+bspc config focused_frame_opacity		0.75
+
+bspc config remove_diabled_monitors		true
+bspc config remove unplugged_monitors	true
+
+bspc config focus_follows_pointer		false
+bspc config history_aware_focus			true
+bspc config focus_by_distance			true
+
+bspc config split_ratio					0.50
+bspc config borderless_monocle			true
+bspc config gapless_monocle				false
+
+# AutoStart applications
+sxhkd &
+picom --config $HOME/.config/picom/picom.conf &
+nitrogen --restore &
+dunst &
+
+$HOME/.config/polybar/launch.sh
+
+echo "BSPWM configuration and applications started..."
