@@ -26,7 +26,8 @@ return {
 		config = function()
 			local lspconfig = require 'lspconfig'
 			lspconfig.lua_ls.setup({})
-
+			lspconfig.clangd.setup({})
+			lspconfig.pyright.setup({})
 			map_key('K', vim.lsp.buf.hover)
 			map_key('gd', vim.lsp.buf.definition)
 			map_key('<leader>ca', vim.lsp.buf.code_action)
