@@ -8,7 +8,7 @@ sudo pacman -S base-devel git go nodejs npm wget unzip ripgrep fd
 ```
 
 ## Install Neovim
-Install Neovim with the following command:
+Install Neovim with this command:
 
 ```bash
 sudo pacman -S neovim
