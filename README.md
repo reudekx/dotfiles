@@ -67,9 +67,10 @@ run '~/.tmux/plugins/tpm/tpm'
 - **Update Plugins:** `prefix + U`
 - **Remove Plugins:** `prefix + alt + U`
 
-### Configure tmux-powerline
-Add the following line to your `~/.tmux.conf` file after configuring TPM:
+### Configure tmux-power
+Add the following line to your `~/.tmux.conf` file: 
 
 ```sh
-set -g @plugin 'erikw/tmux-powerline'
+set -g @plugin 'wfxr/tmux-power'
+set -g @tmux_power_theme 'moon'
 ```
