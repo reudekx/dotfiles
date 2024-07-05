@@ -1,10 +1,10 @@
 # Setup Instructions (Personal Reference)
 
 ## Required Packages
-To begin, install the necessary packages:
+Install the necessary packages:
 
 ```bash
-sudo pacman -S base-devel git go nodejs npm wget unzip
+sudo pacman -S base-devel git go nodejs npm wget unzip ripgrep fd
 ```
 
 ## Install Neovim
@@ -45,6 +45,12 @@ sudo pacman -S tmux
 ```
 
 ### Configure TPM (Tmux Plugin Manager)
+Clone the TPM repository:
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
 Add the following snippet to the bottom of your `~/.tmux.conf` file (ensure the last `run` command is at the very bottom):
 
 ```sh
