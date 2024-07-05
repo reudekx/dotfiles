@@ -26,7 +26,6 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 fi
 
 # alias
-
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -al'
