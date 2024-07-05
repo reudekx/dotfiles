@@ -12,8 +12,8 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
-
 zinit light romkatv/powerlevel10k
+zinit snippet OMZ::plugins/git/git.plugin.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
