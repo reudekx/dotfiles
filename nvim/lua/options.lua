@@ -2,9 +2,9 @@ local opt = vim.opt
 local cmd = vim.cmd
 local api = vim.api
 
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
 opt.autoindent = true
 opt.smarttab = true
 opt.wrap = false
