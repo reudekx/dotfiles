@@ -29,9 +29,6 @@ fi
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -al'
-alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -i'
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/home/.p10k.zsh.
 [[ ! -f ~/dotfiles/home/.p10k.zsh ]] || source ~/dotfiles/home/.p10k.zsh
