@@ -39,6 +39,12 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light romkatv/powerlevel10k
 ```
 
+### Update zinit & zinit plugins
+```bash
+zinit self-update
+zinit update --all
+```
+
 ## Install Tmux and Configure TPM & tmux-powerline
 
 ### Install Tmux
