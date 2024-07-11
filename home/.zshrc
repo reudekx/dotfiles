@@ -18,11 +18,16 @@ zinit snippet OMZ::plugins/git/git.plugin.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# SSH
+# options
+setopt inc_append_history
+setopt share_history
+
+# ssh
 if [ -z "$SSH_AUTH_SOCK" ]; then
 	eval "$(ssh-agent -s)"
 	ssh-add ~/.ssh/id_rsa_reudekx
-	ssh-add ~/.ssh/id_ed25519_reudekx
+	ssh-add ~/.ssh/id_rsa_rhdehgks
+	ssh-add ~/.ssh/id_rsa_aws
 fi
 
 # alias
