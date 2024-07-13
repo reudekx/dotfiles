@@ -21,6 +21,8 @@ opt.ttyfast = true
 opt.swapfile = false
 opt.clipboard = "unnamedplus"
 opt.scrolloff = 10
+opt.compatible = false
 
+cmd('filetype plugin on')
 cmd('syntax on')
 cmd('colorscheme cyberdream')
