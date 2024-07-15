@@ -4,6 +4,6 @@ return {
 	"preservim/tagbar",
 	config = function()
 		vim.g.tagbar_position = 'rightbelow'
-		map_key('<leader>w', ':TagbarToggle<CR>')
+		-- map_key('<leader>w', ':TagbarToggle<CR>')
 	end
 }
