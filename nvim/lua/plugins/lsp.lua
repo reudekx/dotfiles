@@ -76,9 +76,9 @@ return {
 			end
 
 			-- Key mappings
-			map_key('K', vim.lsp.buf.hover)
-			map_key('gd', vim.lsp.buf.definition)
-			map_key('<leader>ca', vim.lsp.buf.code_action)
+			map_key('n', '<leader>lh', vim.lsp.buf.hover, 'lsp hover')
+			map_key('n', '<leader>ld', vim.lsp.buf.definition, 'lsp definition')
+			map_key('n', '<leader>lca', vim.lsp.buf.code_action, 'lsp code action')
 		end
 	}
 }

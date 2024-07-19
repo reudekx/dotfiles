@@ -24,6 +24,6 @@ return {
 			},
 		}
 
-		map_key('<leader>e', ':Neotree toggle<CR>')
+		map_key('n', '<leader>e', ':Neotree toggle<CR>', 'neotree toggle')
 	end
 }

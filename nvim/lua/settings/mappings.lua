@@ -1,30 +1,27 @@
 local map_key = require 'utils.key-mapper'.map_key
 
 -- No highlight search
-map_key(',<leader>', ':nohlsearch<CR>')
+map_key('n', ',<leader>', ':nohlsearch<CR>')
 
 -- Pane navigatin
-map_key('<C-h>', '<C-w>h')
-map_key('<C-j>', '<C-w>j')
-map_key('<C-k>', '<C-w>k')
-map_key('<C-l>', '<C-w>l')
+map_key('n', '<C-h>', '<C-w>h')
+map_key('n', '<C-j>', '<C-w>j')
+map_key('n', '<C-k>', '<C-w>k')
+map_key('n', '<C-l>', '<C-w>l')
 
 -- Exit insert mode
-map_key('jk', '<Esc>', 'i')
+map_key('i', 'jk', '<Esc>')
 
 -- Move one character in insert mode
-map_key('<C-h>', '<Left>', 'i')
-map_key('<C-j>', '<Down>', 'i')
-map_key('<C-k>', '<Up>', 'i')
-map_key('<C-l>', '<Right>', 'i')
+map_key('i', '<C-h>', '<Left>')
+map_key('i', '<C-j>', '<Down>')
+map_key('i', '<C-k>', '<Up>')
+map_key('i', '<C-l>', '<Right>')
 
 -- Backspace and Delete
-map_key('<C-d>', '<BS>', 'i')
-map_key('<C-s>', '<Del>', 'i')
+map_key('i', '<C-d>', '<BS>')
+map_key('i', '<C-s>', '<Del>')
 
 -- Indent
-map_key('<', '<gv', 'v')
-map_key('>', '>gv', 'v')
-
--- Fold
--- za, zM, zR
+map_key('v', '<', '<gv')
+map_key('v', '>', '>gv')
