@@ -18,7 +18,10 @@ zinit snippet OMZ::plugins/git/git.plugin.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# options
+# history settings
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
 setopt inc_append_history
 setopt share_history
 
