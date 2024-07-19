@@ -25,4 +25,4 @@ opt.compatible = false
 
 cmd('filetype plugin on')
 cmd('syntax on')
-cmd('colorscheme cyberdream')
+cmd('colorscheme kanagawa')
