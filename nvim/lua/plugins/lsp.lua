@@ -6,6 +6,7 @@ local langs = {
 	'pyright',
 	'autotools_ls',
 	'marksman',
+	'gopls',
 }
 
 local function get_python_path()
