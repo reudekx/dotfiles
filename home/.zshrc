@@ -38,5 +38,8 @@ alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -al'
 
-# To customize prompt, run `p10k configure` or edit ~/dotfiles/home/.p10k.zsh.
-[[ ! -f ~/dotfiles/home/.p10k.zsh ]] || source ~/dotfiles/home/.p10k.zsh
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
