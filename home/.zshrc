@@ -1,5 +1,6 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
+### zinit & p10k
+# enable powerlevel10k instant prompt. should stay close to the top of ~/.zshrc.
+# initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -15,17 +16,17 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light romkatv/powerlevel10k
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# history settings
+### zsh history settings
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt inc_append_history
 setopt share_history
 
-# ssh
+### ssh
 if [ -z "$SSH_AUTH_SOCK" ]; then
 	eval "$(ssh-agent -s)"
 	ssh-add ~/.ssh/id_rsa_reudekx
@@ -33,18 +34,57 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 	ssh-add ~/.ssh/id_rsa_aws
 fi
 
-# alias
+### pyenv
+# install pyenv
+if [ ! -d "$HOME/.pyenv" ]; then
+  echo "Notice: pyenv installation directory ($HOME/.pyenv) not found."
+  echo "Cloning the latest pyenv from GitHub now. Please wait..."
+  git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+  if [ $? -ne 0 ]; then
+    echo "Error: pyenv cloning failed. Check internet connection or git installation."
+  fi
+fi
+
+# set up shell environment
+if [ -d "$HOME/.pyenv" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init - zsh)"
+else
+  echo "Warning: pyenv directory ($HOME/.pyenv) not found after installation attempt. Skipping pyenv initialization."
+fi
+
+### rbenv
+# install rbenv
+if [ ! -d "$HOME/.rbenv" ]; then
+  echo "Notice: rbenv installation directory ($HOME/.rbenv) not found."
+  echo "Cloning the latest rbenv from GitHub now. Please wait..."
+  git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
+  if [ $? -ne 0 ]; then
+    echo "Error: rbenv cloning failed. Check internet connection or git installation."
+  fi
+fi
+
+# set up shell environment
+if [ -d "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init - zsh)"
+else
+  echo "Warning: rbenv directory ($HOME/.rbenv) not found after installation attempt. Skipping rbenv initialization."
+fi
+
+### poetry
+# set up shell environment
+if [[ -d "$HOME/.local/bin" && ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+### alias
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -al'
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# functions
-
+### functions
 clip() {
     if [ -z "$1" ]; then
         echo "Error: Please provide a filename as an argument." >&2
