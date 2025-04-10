@@ -43,3 +43,15 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# functions
+
+clip() {
+    if [ -z "$1" ]; then
+        echo "Error: Please provide a filename as an argument." >&2
+        return 1
+    elif [ ! -f "$1" ]; then
+        echo "Error: File '$1' not found or is not a regular file." >&2
+        return 1
+    fi
+    cat "$1" | clip.exe && echo "File '$1' successfully copied to clipboard."
+}
