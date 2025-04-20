@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+### antigen
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 mkdir -p "$ZSH_CACHE_DIR/completions"
 
@@ -15,10 +16,14 @@ source "${ANTIGEN_HOME}/antigen.zsh"
 
 antigen use oh-my-zsh
 
-antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle git
 antigen bundle docker
+antigen bundle sudo
+antigen bundle colored-man-pages
 
 antigen theme romkatv/powerlevel10k
 
