@@ -1,4 +1,4 @@
-### zinit & p10k
+### p10k
 # enable powerlevel10k instant prompt. should stay close to the top of ~/.zshrc.
 # initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -6,15 +6,23 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+mkdir -p "$ZSH_CACHE_DIR/completions"
 
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
-zinit light romkatv/powerlevel10k
-zinit snippet OMZ::plugins/git/git.plugin.zsh
+ANTIGEN_HOME="$HOME/.antigen"
+[ ! -d "$ANTIGEN_HOME/.git" ] && mkdir -p "$(dirname "$ANTIGEN_HOME")" && git clone --depth=1 https://github.com/zsh-users/antigen.git "$ANTIGEN_HOME"
+source "${ANTIGEN_HOME}/antigen.zsh"
+
+antigen use oh-my-zsh
+
+antigen bundle zdharma-continuum/fast-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle git
+antigen bundle docker
+
+antigen theme romkatv/powerlevel10k
+
+antigen apply
 
 # to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
