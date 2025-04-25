@@ -24,6 +24,7 @@ antigen bundle git
 antigen bundle docker
 antigen bundle sudo
 antigen bundle colored-man-pages
+antigen bundle terraform
 
 antigen theme romkatv/powerlevel10k
 
