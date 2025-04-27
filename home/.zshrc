@@ -108,5 +108,5 @@ clip() {
         echo "Error: File '$1' not found or is not a regular file." >&2
         return 1
     fi
-    cat "$1" | clip.exe && echo "File '$1' successfully copied to clipboard."
+    iconv -f utf8 -t utf16le "$1" | clip.exe && echo "File '$1' successfully copied to clipboard."
 }
