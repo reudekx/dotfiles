@@ -10,6 +10,8 @@ fi
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 mkdir -p "$ZSH_CACHE_DIR/completions"
 
+export ANTIGEN_LOG="$HOME/.antigen.log"
+
 ANTIGEN_HOME="$HOME/.antigen"
 [ ! -d "$ANTIGEN_HOME/.git" ] && mkdir -p "$(dirname "$ANTIGEN_HOME")" && git clone --depth=1 https://github.com/zsh-users/antigen.git "$ANTIGEN_HOME"
 source "${ANTIGEN_HOME}/antigen.zsh"
@@ -25,6 +27,7 @@ antigen bundle docker
 antigen bundle sudo
 antigen bundle colored-man-pages
 antigen bundle terraform
+antigen bundle BreakingPitt/zsh-packer@main
 
 antigen theme romkatv/powerlevel10k
 
